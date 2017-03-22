@@ -1,0 +1,21 @@
+<ion-split-pane (ionChange)="updateTitles()">
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{title}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      <ion-list>
+        <ion-item detail-push *ngFor="let project of projects" (click)="projectSelected(project)">
+          {{ project.name }}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>
